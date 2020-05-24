@@ -44,23 +44,4 @@ public class InserirCategoria extends HttpServlet {
 		}				
 	}
 	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		try {
-			listaCategoria(request, response);					
-		} catch (SQLException ex) {
-			throw new ServletException(ex);
-		}
-	}
-
-	
-	private void listaCategoria(HttpServletRequest request, HttpServletResponse response)
-			throws SQLException, IOException, ServletException {
-		List<Categoria> listaCategoria = dao.Listar();
-		request.setAttribute("listaCategoria", listaCategoria);
-		RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
-		dispatcher.forward(request, response);
-	}
-	
-	
 }
